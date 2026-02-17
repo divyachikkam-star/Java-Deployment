@@ -1,15 +1,10 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven-3'
-    }
-
     stages {
-
         stage('Build') {
             steps {
-                dir('java_project'){
+                dir('java_project') {
                     sh 'mvn clean package'
                 }
             }
@@ -18,11 +13,10 @@ pipeline {
 
     post {
         success {
-            echo 'Build Successful 🎉'
+            echo 'Build Successful'
         }
         failure {
-            echo 'Build Failed ❌'
+            echo 'Build Failed'
         }
     }
 }
-
