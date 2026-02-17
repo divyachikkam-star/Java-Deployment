@@ -1,25 +1,13 @@
 pipeline {
     agent any
 
-   
-
     stages {
         stage('Build') {
             steps {
                 dir('java_project') {
-                    sh 'mvn clean package'
+                    sh '/usr/bin/mvn clean package'
                 }
             }
         }
     }
-
-    post {
-        success {
-            echo 'Build Successful'
-        }
-        failure {
-            echo 'Build Failed'
-        }
-    }
 }
-
